@@ -1,0 +1,36 @@
+{
+    "application": {
+        "id": "",
+        "title": "com.jp.employeesnorth.EmployeesNorth",
+        "description": "Empregados North",
+        "type": "SAP_UI5_Component",
+        "componentUrl": "/",
+        "appUrl": "#EmployeesNorth-Display",
+        "navigationComponentName": "com.jp.employeesnorth",
+        "intentSemanticObject": "EmployeesNorth",
+        "intentAction": "Display",
+        "html5ApplicationName": "employeesnorth",
+        "HCPParentApplicationName": ""
+    },
+    "assignment": {
+        "groups": [
+            "40027e80-7d06-4761-aee3-07ca45ffdecb"
+        ],
+        "contentPackages": [
+            "510ceb24-4098-4e97-9ce7-e4f61722c690"
+        ],
+        "categories": []
+    },
+    "tile": {
+        "type": "DynamicTile",
+        "title": "Empregados",
+        "subtitle": "Northwind",
+        "searchKeywords": "Empregados,Northwind",
+        "displayIconUrl": "sap-icon://employee",
+        "displayInfoText": "",
+        "size": "1x1",
+        "serviceURL": "/sap/fiori/employeesnorth/northwind/V3/Northwind/Northwind.svc/Categories/$count",
+        "refreshInterval": 10,
+        "displayNumberUnit": "Pessoas"
+    }
+}

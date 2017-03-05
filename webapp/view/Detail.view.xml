@@ -1,0 +1,78 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:form="sap.ui.layout.form" controllerName="com.jp.employeesnorth.controller.Detail">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
+		<semantic:content>
+			<ObjectHeader id="objectHeader" title="{TitleOfCourtesy} {FirstName} {LastName}">
+			    <attributes>
+			        <ObjectAttribute text="{Title}" id="__attribute14"/>
+			    </attributes>
+			</ObjectHeader>
+			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://hint" tooltip="{i18n>detailIconTabBarInfo}">
+						<content>
+							<!-- Product Info Form -->
+							<form:SimpleForm id="simpleForm" minWidth="1024" maxContainerCols="2" editable="false" layout="ResponsiveGridLayout" title="{i18n>detailFormTitle}" labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
+								<form:content>
+									<Label text="{i18n>detailFormLocation}"/>
+									<Text text="{City}, {Country}"/>
+									<Label text="{i18n>detailFormHomePhone}"/>
+									<Text text="{HomePhone}"/>
+									<Label text="{i18n>detailFormNotes}"/>
+									<Text text="{Notes}"/>
+								</form:content>
+							<form:customData>
+							    <sap.ui.core:CustomData xmlns:sap.ui.core="sap.ui.core" key="w5g.dt.editable" value="false" id="__data8"/>
+							</form:customData>
+							</form:SimpleForm>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter id="iconTabBarFilter2" icon="sap-icon://sales-quote" tooltip="{i18n>detailIconTabBarAttachments}">
+						<content>
+							<Table id="lineItemsList" width="auto" items="{Orders}" updateFinished="onListUpdateFinished" noDataText="{i18n>detailLineItemTableNoDataText}" busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin">
+								<headerToolbar>
+									<Toolbar id="lineItemsToolbar">
+										<Title id="lineItemsHeader" text="{detailView>/lineItemListTitle}"/>
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column>
+										<Text text="{i18n>detailLineItemTableIDColumn}"/>
+									</Column>
+									<Column id="__column2">
+										<header>
+											<Text text="{i18n>detailLineItemTableAddress}" id="__text12"/>
+										</header>
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="{i18n>detailLineItemTableUnitNumberColumn}"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<ObjectIdentifier title="{ShipName}" text="{OrderID}"/>
+											<ObjectAttribute text="{ShipAddress}, {ShipPostalCode}" id="__attribute7"/>
+											<ObjectAttribute text="{ShipCity}, {ShipCountry}" id="__attribute6"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+								<customData>
+									<sap.ui.core:CustomData xmlns:sap.ui.core="sap.ui.core" key="w5g.dt.editable" value="false" id="__data12"/>
+								</customData>
+							</Table>
+						</content>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</semantic:content>
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
+		</semantic:sendEmailAction>
+		<semantic:shareInJamAction>
+			<semantic:ShareInJamAction id="shareInJam" visible="{FLP>/isShareInJamActive}" press="onShareInJamPress"/>
+		</semantic:shareInJamAction>
+		<semantic:saveAsTileAction>
+			<footerbar:AddBookmarkButton id="shareTile" title="{detailView>/saveAsTileTitle}"/>
+		</semantic:saveAsTileAction>
+	</semantic:DetailPage>
+</mvc:View>
