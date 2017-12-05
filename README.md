@@ -1,6 +1,6 @@
 # SAPUI5 Sales Report
 
-This is a simple SAPUI5 application that displays sales reports from each employees of a company. The data is consumed from [Northwind OData service](http://services.odata.org/V3/Northwind/Northwind.svc).
+This is a simple SAPUI5 application that displays reports from each salesman of a company. The data is consumed from [Northwind OData service](http://services.odata.org/V3/Northwind/Northwind.svc).
 
 
 ## Resources
